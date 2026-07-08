@@ -48,6 +48,12 @@
     },
     "rss": [
       {
+        "name": "阮一峰的网络日志",
+        "url": "http://feeds.feedburner.com/ruanyifeng",
+        "enabled": true,
+        "category": "tech-blog"
+      },
+      {
         "name": "Simon Willison",
         "url": "https://simonwillison.net/atom/everything/",
         "enabled": true,
