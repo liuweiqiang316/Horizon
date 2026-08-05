@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 from .base import BaseScraper
 from ..models import (
     ContentItem,
+    ProfileRoute,
     RedditConfig,
     RedditSubredditConfig,
     RedditUserConfig,
@@ -105,7 +106,13 @@ class RedditScraper(BaseScraper):
             if child.get("kind") == "t3"
         ]
         return await self._process_posts(
-            posts, since, "subreddit", cfg.subreddit, cfg.min_score
+            posts,
+            since,
+            "subreddit",
+            cfg.subreddit,
+            cfg.min_score,
+            cfg.category,
+            cfg.profile,
         )
 
     async def _fetch_subreddit_rss(
@@ -150,6 +157,7 @@ class RedditScraper(BaseScraper):
                     content=content,
                     author=str(entry.get("author") or "unknown"),
                     published_at=published_at,
+                    profile=cfg.profile,
                     metadata={
                         "score": None,
                         "upvote_ratio": None,
@@ -159,6 +167,7 @@ class RedditScraper(BaseScraper):
                         "flair": None,
                         "discussion_url": link,
                         "fallback": "rss",
+                        "category": cfg.category,
                     },
                 )
             )
@@ -191,7 +200,13 @@ class RedditScraper(BaseScraper):
 
         posts = self._parse_old_reddit_posts(response.text, cfg)
         return await self._process_posts(
-            posts, since, "subreddit-html", cfg.subreddit, cfg.min_score
+            posts,
+            since,
+            "subreddit-html",
+            cfg.subreddit,
+            cfg.min_score,
+            cfg.category,
+            cfg.profile,
         )
 
     def _parse_old_reddit_posts(
@@ -300,7 +315,13 @@ class RedditScraper(BaseScraper):
             if child.get("kind") == "t3"
         ]
         return await self._process_posts(
-            posts, since, "user", cfg.username, min_score=0
+            posts,
+            since,
+            "user",
+            cfg.username,
+            min_score=0,
+            category=cfg.category,
+            profile=cfg.profile,
         )
 
     async def _process_posts(
@@ -310,6 +331,8 @@ class RedditScraper(BaseScraper):
         subtype: str,
         source_name: str,
         min_score: int,
+        category: Optional[str] = None,
+        profile: ProfileRoute = None,
     ) -> List[ContentItem]:
         valid_posts = []
         comment_tasks = []
@@ -340,7 +363,9 @@ class RedditScraper(BaseScraper):
         for post, comments in zip(valid_posts, all_comments):
             if isinstance(comments, Exception):
                 comments = []
-            item = self._parse_post(post, cast(List[dict], comments), subtype)
+            item = self._parse_post(
+                post, cast(List[dict], comments), subtype, category, profile
+            )
             if item:
                 items.append(item)
         return items
@@ -442,7 +467,12 @@ class RedditScraper(BaseScraper):
         return comments[:fetch_limit]
 
     def _parse_post(
-        self, post: dict, comments: List[dict], subtype: str
+        self,
+        post: dict,
+        comments: List[dict],
+        subtype: str,
+        category: Optional[str] = None,
+        profile: ProfileRoute = None,
     ) -> Optional[ContentItem]:
         post_id = post["id"]
         title = post.get("title", "")
@@ -485,6 +515,7 @@ class RedditScraper(BaseScraper):
             content=content,
             author=author,
             published_at=created,
+            profile=profile,
             metadata={
                 "score": post.get("score", 0),
                 "upvote_ratio": post.get("upvote_ratio"),
@@ -493,6 +524,7 @@ class RedditScraper(BaseScraper):
                 "is_self": is_self,
                 "flair": post.get("link_flair_text"),
                 "discussion_url": discussion_url,
+                "category": category,
             },
         )
 
