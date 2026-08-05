@@ -5,51 +5,87 @@ date: 2026-08-05
 lang: zh
 ---
 
-> 从 40 条内容中筛选出 2 条重要资讯。
+> 从 32 条内容中筛选出 3 条重要资讯。
 
 ---
 
 **科技新闻**
-1. [中国发布首部 L3/L4 自动驾驶强制性国标](#item-tech-news-1) ⭐️ 8.0/10
-2. [报道称 ChainDrop 污染逾 1300 个 npm 包](#item-tech-news-2) ⭐️ 8.0/10
+1. [Google DeepMind 领导层重组](#item-tech-news-1) ⭐️ 8.0/10
+2. [ChainDrop 被指感染逾 1300 个 npm 包](#item-tech-news-2) ⭐️ 8.0/10
+3. [FFmpeg 9.0 扩展格式与 GPU 支持](#item-tech-news-3) ⭐️ 8.0/10
 
 ---
 
 ## 科技新闻
 
 <a id="item-tech-news-1"></a>
-### [中国发布首部 L3/L4 自动驾驶强制性国标](https://wap.miit.gov.cn/jgsj/zbys/qcgy/art/2026/art_a1d2072374884287b67048a77560014e.html) ⭐️ 8.0/10
+### [Google DeepMind 领导层重组](https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/) ⭐️ 8.0/10
 
-工业和信息化部组织制定的强制性国家标准《智能网联汽车 自动驾驶系统安全要求》（GB 44721—2026）已获批发布，拟于 2027 年 7 月 1 日起实施。这是中国首部针对 L3 级有条件自动驾驶和 L4 级高度自动驾驶系统的强制性国家标准，适用于搭载相关系统的 M 类载客车辆和 N 类载货车辆，但不适用于自动泊车系统。该标准由 2024 年推荐性国标系统升级而来，从企业全生命周期安全保障、系统动态驾驶能力、人机交互与用户告知、多维度检验检测四方面建立强制要求。标准要求自动驾驶系统的安全水平至少达到合格且专注驾驶人的水平，将成为相关车企开展系统研发、测试与合规工作的统一安全基准。
+Google 据报将 Demis Hassabis 从 Google DeepMind 首席执行官调整为董事长，构成其核心 AI 组织的一次重大领导层变动。任职 Google 达 27 年的 Jeff Dean 与 Google 高级研究员 Sanjay Ghemawat 也将离职，共同创办一家独立的公益公司，专注于加速机器学习、科学和工程领域的发现。Dean 和 Ghemawat 长期参与 Google 关键技术与研究工作，因此两人的同时离开可能比 Hassabis 的职务变化更直接地影响 Google 的技术领导力和研究方向。现有材料未说明 DeepMind 新任首席执行官、具体交接安排或新公司的项目与时间表。
 
-telegram · zaihuapd · 8月4日 13:06
+hackernews · colesantiago · 8月5日 16:05 · [社区讨论](https://news.ycombinator.com/item?id=49184755)
 
-**「标准背景」** L3 指有条件自动驾驶，L4 指高度自动驾驶，两者均只在规定的设计运行条件下执行驾驶任务；其中 L3 在系统提出接管请求时仍需要后备用户响应。该标准由 2024 年的推荐性国家标准升级而来，并将适用范围明确为 M 类载客车辆和 N 类载货车辆，但不涵盖自动泊车系统。
+**「背景」** Google DeepMind 是谷歌开展前沿人工智能研究的核心组织，此前一直由联合创始人 Demis Hassabis 领导。Jeff Dean 与 Sanjay Ghemawat 则是任职多年的 Google Senior Fellow，并共同参与创建了支撑谷歌大规模服务的核心分布式系统基础设施。
 
-**「影响」** 面向中国市场开发搭载 L3/L4 系统的载客和载货车辆的企业，需在拟定的 2027 年 7 月 1 日实施日前，使全生命周期安全、动态驾驶能力、人机交互、用户告知及检验检测满足强制要求；自动泊车系统不在适用范围内。
+**「影响」** Google DeepMind 将同时面临日常管理权交接和首席科学家离任，而 Jeff Dean 与 Sanjay Ghemawat 创办的新公益公司仍将通过 Google 的投资与云服务和其保持联系。
 
-**标签**: `#自动驾驶`, `#汽车安全标准`, `#智能网联汽车`, `#技术监管`
-
----
-
-<a id="item-tech-news-2"></a>
-### [报道称 ChainDrop 污染逾 1300 个 npm 包](https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/) ⭐️ 8.0/10
-
-Telegram 转述 BleepingComputer 报道称，自传播蠕虫 ChainDrop 已污染超过 1300 个 npm 包，涉及 Keyv、Cacheable 等缓存工具，相关包合计月下载量据称达 20 亿次。攻击据称始于 Keyv 维护者的 GitHub 账户失陷，随后扩散到与 Deliveroo、Qlik、ServiceTitan 等机构有关的包，并通过正常 GitHub Actions 流程发布带有合法来源证明的恶意版本。中毒包会在 npm install 时运行 setup.mjs 投放器和 Math\_Symbol.js 窃密脚本，盗取 GitHub、npm、AWS、Kubernetes 等凭证，并利用维护者权限继续感染其他包。安全公司建议安装过受影响版本的用户将系统视为已失陷，重建环境、轮换全部令牌并检查日志，同时将 npm-cache\[.\]com 作为失陷指标；不过事件规模、具体技术细节及仍在扩散的说法目前仅来自二手转述，仍需原始报道或官方通告核实。
-
-telegram · zaihuapd · 8月5日 03:04
-
-**「背景」** npm 软件供应链攻击通常通过劫持维护者账号或发布令牌，把恶意代码作为正常版本推送到软件包仓库，并借助依赖关系触达下游项目。npm 包可配置在安装期间自动执行的脚本，而 GitHub Actions 等可信发布流程及其来源证明只能确认发布路径，无法保证被发布的代码本身安全。
-
-**「影响」** 安装过受影响版本（包括经传递依赖引入）的开发者和组织应将本地及 CI/CD 环境视为可能失陷，固定到已知安全版本、重建环境并轮换 GitHub、npm、AWS 和 Kubernetes 等凭证；仅使用“^”版本范围不足以避免解析到恶意最新版。
+**「社区讨论」** 评论者普遍认为 Dean 和 Ghemawat 离职是更重大的消息，并担忧这会削弱 Google 对资深工程师和研究人才的凝聚力。关于 Google 人才持续外流、内部环境及股价影响的说法主要属于推测，现有材料不足以证实。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.stepsecurity.io/blog/chaindrop-npm-worm">ChainDrop npm Worm: Bun-loaded CI/CD credential harvester with Ethereum dead-drop C2 - StepSecurity</a></li>
+<li><a href="https://www.solidot.org/story?sid=85019">奇客Solidot | Google DeepMind CEO Demis Hassabis 卸任</a></li>
+<li><a href="https://aiwiki.ai/wiki/sanjay_ghemawat">Sanjay Ghemawat | AI Wiki</a></li>
+<li><a href="https://the-decoder.com/google-deepmind-loses-both-its-ceo-and-chief-scientist-as-demis-hassabis-and-jeff-dean-step-down-simultaneously/">Google Deepmind loses both its CEO and chief scientist as Demis ...</a></li>
+<li><a href="https://www.axios.com/2026/08/05/google-deepmind-demis-hassabis-ai">Google DeepMind CEO Demis Hassabis is stepping aside</a></li>
 
 </ul>
 </details>
 
-**标签**: `#npm`, `#软件供应链安全`, `#开源安全`, `#凭证窃取`, `#GitHub Actions`
+**标签**: `#Google DeepMind`, `#AI leadership`, `#Jeff Dean`, `#machine learning`, `#technology industry`
+
+---
+
+<a id="item-tech-news-2"></a>
+### [ChainDrop 被指感染逾 1300 个 npm 包](https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/) ⭐️ 8.0/10
+
+据 Telegram 对 BleepingComputer 报道的转述，自传播蠕虫 ChainDrop 已感染 npm 上逾 1300 个包，涉及 Keyv、Cacheable 等工具，相关包合计月下载量据称达 20 亿次。攻击据称始于 Keyv 维护者的 GitHub 账号失陷，随后波及 Deliveroo、Qlik、ServiceTitan 等机构相关包，并利用正常 GitHub Actions 流程发布带有合法来源证明的恶意版本。中毒包中的 setup.mjs 会在 npm install 阶段投放 Math\_Symbol.js，窃取 GitHub、npm、AWS 和 Kubernetes 等凭证，再借助维护者权限感染其他包。材料建议安装过受影响版本的用户将环境视为已失陷，重建系统、轮换全部令牌、检查日志，并将 npm-cache\[.\]com 作为失陷指标；不过，逾 1300 个包及攻击仍在扩散等说法尚缺少官方公告或安全研究报告佐证。
+
+telegram · zaihuapd · 8月5日 03:04
+
+**「背景」** npm 包可在 package.json 中配置 preinstall 等生命周期脚本，使代码在依赖安装期间自动执行；此次恶意包正是通过“preinstall: node setup.mjs”触发载荷。软件供应链蠕虫一旦取得维护者账号或发布凭证，便可借助受信任的正常发布渠道篡改更多包，并在其他开发者安装后继续窃取凭证和扩散。
+
+**「影响」** 安装过受感染版本的开发者和组织应将相关构建及运行环境按潜在失陷处理，重建环境、轮换 GitHub、npm、AWS 和 Kubernetes 凭据，并审查日志以阻止蠕虫借维护者权限继续传播。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/">Massive ChainDrop npm supply-chain attack infects hundreds of packages</a></li>
+<li><a href="https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/">ChainDrop supply chain compromise: Anatomy of a self-propagating worm | Microsoft Security Blog</a></li>
+
+</ul>
+</details>
+
+**标签**: `#npm`, `#软件供应链安全`, `#凭证窃取`, `#开源生态`, `#恶意软件`
+
+---
+
+<a id="item-tech-news-3"></a>
+### [FFmpeg 9.0 扩展格式与 GPU 支持](https://news.ycombinator.com/item?id=49166202) ⭐️ 8.0/10
+
+FFmpeg 9.0 正式发布，新增动画 WebP 解码器与分离器、Playdate 视频编码器及封装器，以及用于 DAB+ 的 HE-AAC 960 解码支持。GPU 与处理能力方面加入 v360\_vulkan、transpose\_cuda、AMF 帧率转换器等滤镜，并引入 ONNX Runtime DNN 后端。FFmpeg 团队通过 Anthropic 的 Claude for Open Source Program 获得六个月免费 Claude Max 计划，并使用 Claude 协助查找遗漏的代码回移。来源同时提到部分社区成员关注 AI 辅助开发的安全审查流程，但未提供兼容性变化、性能数据或具体审查细节。
+
+telegram · zaihuapd · 8月5日 10:32
+
+**「背景」** FFmpeg 是广泛用于转码、播放、流媒体和媒体处理软件的开源多媒体工具链，包含编解码器、封装与解封装组件及滤镜框架。动画 WebP 的解码器负责还原图像帧，分离器则解析容器并提取其中的数据流。代码“回移”是将主开发分支中的修复或改动移植到较早的稳定分支，查漏通常用于确保发布分支没有遗漏必要补丁。
+
+**「影响」** 由于 FFmpeg 9.0 的七个核心库均提升主版本并全面破坏 ABI，依赖其共享库的应用、发行版和系统集成商升级时需要重新构建，并可能调整不兼容的代码。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://jbkempf.com/blog/2026/ffmpeg-9.0/">FFmpeg 9.0 — Jean-Baptiste Kempf</a></li>
+
+</ul>
+</details>
+
+**标签**: `#FFmpeg`, `#multimedia-codecs`, `#GPU-acceleration`, `#AI-assisted-development`, `#open-source`
 
 ---
