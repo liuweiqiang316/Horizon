@@ -5,56 +5,37 @@ date: 2026-10-09
 lang: zh
 ---
 
-> 从 37 条内容中筛选出 2 条重要资讯。
+> 从 54 条内容中筛选出 1 条重要资讯。
 
 ---
 
 **科技新闻**
-1. [清华团队研制钍-229 核光钟](#item-tech-news-1) ⭐️ 8.0/10
-
-**科技博客**
-1. [Jev 决策模型的用途与风险](#item-tech-blog-1) ⭐️ 4.0/10
+1. [Cloudflare 收购 Deno](#item-tech-news-1) ⭐️ 8.0/10
 
 ---
 
 ## 科技新闻
 
 <a id="item-tech-news-1"></a>
-### [清华团队研制钍-229 核光钟](https://www.nature.com/articles/s41586-026-11122-1) ⭐️ 8.0/10
+### [Cloudflare 收购 Deno](https://deno.com/blog/cloudflare) ⭐️ 8.0/10
 
-据来源内容，清华大学研究团队利用自主研制的 148 纳米连续波真空紫外激光和掺钍-229 氟化钙晶体，率先研制出核光钟并实现稳定运行，成果发表于《自然》。该核光钟以钍-229 原子核能级跃迁作为计时基准，目标是提供新一代时间频率基准。来源称，这一技术有望用于卫星导航、深空探测等需要高精度计时的场景。由于条目为转述新华社报道且未提供更多论文数据，具体精度、稳定度和可复现性等关键指标仍需以论文正文为准。
+Cloudflare 收购了 Deno，Deno 官方博客称其将“加入 Cloudflare”。在提供的社区摘录中，用户引用称 Deno runtime 还会获得一年支持，期间每月发布包含错误修复和安全更新的版本，之后 Deno 团队将结束对该运行时的开发。该引用还称 Deno 会保持开源，并欢迎其他人继续开发，因此长期维护取决于是否有外部接手。此事关系到 JavaScript 运行时、边缘计算和开源基础设施，因为 Deno 曾是 Node.js 之外的重要替代运行时，并以安全模型和现代工具链受到关注。
 
-telegram · zaihuapd · 10月8日 05:19
+hackernews · ilreb · 10月9日 13:03 · [社区讨论](https://news.ycombinator.com/item?id=50019911)
 
-**「背景」** 光钟通常用原子或离子的高稳定能级跃迁作为“摆”，通过激光锁定跃迁频率来实现比传统微波原子钟更高精度的计时。钍-229 因被认为具有可由真空紫外光直接激发的低能核跃迁，长期被视为核光钟候选体系；《自然》是覆盖物理、化学、生物等自然科学领域的同行评议国际期刊。
+**「背景」** Deno 是由 Node.js 创始人 Ryan Dahl 发起的 JavaScript/TypeScript 运行时，定位为 Node.js 的替代方案之一，强调默认安全模型、内置 TypeScript 支持和现代 Web API。Cloudflare 则运营 Workers 等边缘计算平台，因此收购 Deno 与 JavaScript 运行时、开发者工具和边缘部署生态直接相关。
 
-**「影响」** 如果该成果经论文细节证实，钍-229 核光钟将为时间频率基准研发提供新的实验证据，并可能让高精度授时、导航和基础物理检验受益于原子核对外界电磁扰动较低敏感度的优势。
+**「影响」** 依赖 Deno runtime 的开发者和组织目前有约一年维护窗口来评估迁移、接手维护或等待社区分叉。
+
+**「社区讨论」** Hacker News 评论总体表达失望和担忧，许多人把这次收购视为 Deno runtime 主动开发即将停止，甚至称其更像“收购式招募”。也有评论将此事放入开发工具公司被大平台整合的趋势中，并讨论 Deno 转向 npm 兼容后是否偏离了最初愿景。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Nature_%28journal%29">Nature (journal) - Wikipedia</a></li>
-<li><a href="https://www.nist.gov/news-events/news/2024/09/major-leap-nuclear-clock-paves-way-ultraprecise-timekeeping">Major Leap for Nuclear Clock Paves Way for Ultraprecise... | NIST</a></li>
+<li><a href="https://deno.com/blog/cloudflare">Deno is joining Cloudflare | Deno</a></li>
 
 </ul>
 </details>
 
-**标签**: `#precision timing`, `#atomic clocks`, `#photonics`, `#quantum metrology`, `#research`
-
----
-
-## 科技博客
-
-<a id="item-tech-blog-1"></a>
-### [Jev 决策模型的用途与风险](http://www.ruanyifeng.com/blog/2026/10/weekly-issue-414.html) ⭐️ 4.0/10
-
-rss · 阮一峰的网络日志 · 10月8日 15:04
-
-**「背景」** 这期周刊以 TypeSafe AI 发布的 Jev 为引子：作者称它不是像常见大模型那样返回文本，而是返回一个表示概率的浮点数，因此被称为“决策模型”。这让原本难以直接自动化的判断、选择和评分任务，可以被压缩成机器可处理的数值问题。
-
-**「方案」** 作者把 Jev 的能力分成三类：对“是非题”返回命题为真的概率，对“选择题”返回各选项正确的概率，以及按给定标准对材料打分。周刊引用了两个浏览器插件例子来说明这种接口的实际用途：一个把 Ctrl+F 改造成语义查找，逐段询问 Jev“本段是否与搜索词相关”，再按相关度概率返回最可能的段落；另一个预先给出从低到高的论证质量标准，让 Jev 自动为网页内容评分，使用户在阅读前获得一个质量信号。作者认为关键转变不在模型规模，而在输出从自然语言变成量化结果之后，许多以往只能靠人判断的问题突然能进入普通程序流程。与此同时，他也引用 Simon Willison 的担忧：Jev 只给浮点数，不给推理过程，甚至比会生成解释的大模型更像黑箱；如果被用于简历排序、候选人筛选等场景，复杂评估可能被过度简化成一个难以追责的分数。周刊后半部分延续常规形式，简短收录 Markdown 作为源码、不能录像的智能摄像头、RSA 分解纪录、开发工具和资源链接等内容，但这些多是发现式摘要而非深入论证。
-
-**「启示」** 作者的核心判断是，Jev 的价值在于把语义判断变成可排序、可比较、可编程的概率输出。它也同时放大了黑箱决策的治理问题：越容易把判断变成分数，越需要警惕这些分数被当成客观事实使用。
-
-**标签**: `#AI models`, `#decision models`, `#technology roundup`, `#developer tools`, `#Markdown`
+**标签**: `#javascript`, `#deno`, `#cloudflare`, `#open-source`, `#edge-computing`
 
 ---
